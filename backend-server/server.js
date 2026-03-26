@@ -25,6 +25,7 @@ const classRoutes = require('./routes/class');
 const assignmentRoutes = require('./routes/assignment');
 const answerRoutes = require('./routes/answer');
 const statsRoutes = require('./routes/stats');
+const aiRoutes = require('./routes/ai');
 
 // API Routes
 app.use('/api/auth', authRoutes);
@@ -32,6 +33,7 @@ app.use('/api/class', classRoutes);
 app.use('/api/assignment', assignmentRoutes);
 app.use('/api/answer', answerRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Health check
 app.get('/health', (req, res) => {

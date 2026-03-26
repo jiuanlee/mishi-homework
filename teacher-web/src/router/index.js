@@ -29,6 +29,16 @@ const routes = [
     path: '/statistics',
     name: 'Statistics',
     component: () => import('../pages/Statistics.vue')
+  },
+  {
+    path: '/ai-script',
+    name: 'AIScriptGenerator',
+    component: () => import('../pages/AIScriptGenerator.vue')
+  },
+  {
+    path: '/ai-script/preview',
+    name: 'ScriptPreview',
+    component: () => import('../pages/ScriptPreview.vue')
   }
 ]
 
