@@ -1,0 +1,178 @@
+.homework-container {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 30rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  color: white;
+}
+
+.welcome {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.class-info {
+  display: block;
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.title-icon {
+  font-size: 40rpx;
+  margin-right: 15rpx;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.homework-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.homework-card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.homework-card:active {
+  transform: scale(0.98);
+}
+
+.homework-card.completed {
+  opacity: 0.7;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25rpx;
+}
+
+.mode-icon {
+  font-size: 60rpx;
+  margin-right: 20rpx;
+}
+
+.homework-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.homework-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.homework-meta {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.status-tag {
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.status-tag.pending {
+  background: #fff7e6;
+  color: #ff9900;
+}
+
+.status-tag.doing {
+  background: #ecf5ff;
+  color: #409EFF;
+}
+
+.status-tag.completed {
+  background: #f0f9ff;
+  color: #67C23A;
+}
+
+.card-footer {
+  border-top: 1rpx solid #eee;
+  padding-top: 20rpx;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.progress-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.progress-value {
+  font-size: 24rpx;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12rpx;
+  border-radius: 6rpx;
+  margin-bottom: 15rpx;
+}
+
+.deadline {
+  display: flex;
+  align-items: center;
+}
+
+.deadline-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.deadline-value {
+  font-size: 24rpx;
+  color: #f56c6c;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #999;
+}

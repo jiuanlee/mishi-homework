@@ -1,0 +1,36 @@
+{
+  "name": "escape-room-test-scripts",
+  "version": "1.0.0",
+  "description": "密室做题家自动化测试脚本",
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest unit-tests --coverage",
+    "test:api": "jest api-tests --coverage",
+    "test:e2e": "jest e2e-tests --testTimeout=30000",
+    "test:perf": "jest performance-tests --testTimeout=60000",
+    "test:coverage": "jest --coverage --coverageReporters=html --coverageReporters=text",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "supertest": "^6.3.3",
+    "jest": "^29.7.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "jest-junit": "^16.0.0",
+    "@types/jest": "^29.5.8"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "../test-results/coverage",
+    "testResultsDirectory": "../test-results",
+    "testMatch": [
+      "**/test-scripts/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "backend-server/**/*.js",
+      "!backend-server/node_modules/**"
+    ]
+  }
+}

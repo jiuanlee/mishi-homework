@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "current": {
+    "type": "PersonalityState",
+    "rigor": 0.7,
+    "creativity": 0.35,
+    "verbosity": 0.25,
+    "risk_tolerance": 0.4,
+    "obedience": 0.85
+  },
+  "stats": {
+    "rigor=0.7|creativity=0.3|verbosity=0.3|risk_tolerance=0.4|obedience=0.9": {
+      "success": 0,
+      "fail": 2,
+      "avg_score": 0.2,
+      "n": 2,
+      "updated_at": "2026-03-07T10:05:27.978Z"
+    }
+  },
+  "history": [
+    {
+      "at": "2026-03-07T10:03:53.731Z",
+      "key": "rigor=0.7|creativity=0.3|verbosity=0.3|risk_tolerance=0.4|obedience=0.9",
+      "outcome": "failed",
+      "score": 0.2,
+      "notes": "event:evt_1772877833714"
+    },
+    {
+      "at": "2026-03-07T10:05:27.978Z",
+      "key": "rigor=0.7|creativity=0.3|verbosity=0.3|risk_tolerance=0.4|obedience=0.9",
+      "outcome": "failed",
+      "score": 0.2,
+      "notes": "event:evt_1772877927966"
+    }
+  ],
+  "updated_at": "2026-03-07T10:05:27.978Z"
+}

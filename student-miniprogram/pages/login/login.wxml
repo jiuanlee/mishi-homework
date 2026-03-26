@@ -1,0 +1,40 @@
+<view class="login-container">
+  <view class="logo-section">
+    <text class="logo-icon">🔐</text>
+    <text class="title">密室做题家</text>
+    <text class="subtitle">学生端</text>
+  </view>
+
+  <view class="form-section">
+    <view class="input-group">
+      <text class="input-label">班级码</text>
+      <input 
+        class="input-box" 
+        type="text" 
+        placeholder="请输入 6 位班级码" 
+        maxlength="6"
+        value="{{classCode}}"
+        bindinput="onClassCodeInput"
+      />
+    </view>
+
+    <view class="input-group">
+      <text class="input-label">姓名</text>
+      <input 
+        class="input-box" 
+        type="text" 
+        placeholder="请输入你的姓名" 
+        value="{{studentName}}"
+        bindinput="onNameInput"
+      />
+    </view>
+
+    <button class="login-btn" bindtap="handleLogin" loading="{{loading}}">
+      开始冒险
+    </button>
+
+    <view class="tips">
+      <text class="tips-text">💡 班级码由老师提供，不知道就问老师哦~</text>
+    </view>
+  </view>
+</view>

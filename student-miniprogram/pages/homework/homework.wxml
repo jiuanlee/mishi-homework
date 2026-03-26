@@ -1,0 +1,52 @@
+<view class="homework-container">
+  <view class="header">
+    <text class="welcome">👋 你好，{{studentName}}</text>
+    <text class="class-info">班级码：{{classCode}}</text>
+  </view>
+
+  <view class="section-title">
+    <text class="title-icon">📝</text>
+    <text class="title-text">我的作业</text>
+  </view>
+
+  <view class="homework-list">
+    <view 
+      class="homework-card {{item.status}}" 
+      wx:for="{{homeworkList}}" 
+      wx:key="id"
+      bindtap="enterHomework"
+      data-id="{{item.id}}"
+    >
+      <view class="card-header">
+        <view class="mode-icon">{{item.modeIcon}}</view>
+        <view class="homework-info">
+          <text class="homework-name">{{item.name}}</text>
+          <text class="homework-meta">{{item.questionCount}}题 · {{item.duration}}分钟</text>
+        </view>
+        <view class="status-tag {{item.status}}">{{item.statusText}}</view>
+      </view>
+      
+      <view class="card-footer">
+        <view class="progress-info">
+          <text class="progress-label">进度</text>
+          <text class="progress-value">{{item.progress}}%</text>
+        </view>
+        <progress 
+          class="progress-bar" 
+          percent="{{item.progress}}" 
+          backgroundColor="#eee"
+          activeColor="#667eea"
+        />
+        <view class="deadline">
+          <text class="deadline-label">🕐 截止：</text>
+          <text class="deadline-value">{{item.deadline}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{homeworkList.length === 0}}">
+    <text class="empty-icon">🎉</text>
+    <text class="empty-text">太棒啦！所有作业都完成了~</text>
+  </view>
+</view>

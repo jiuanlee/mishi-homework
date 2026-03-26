@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+<rect width="1200" height="900" fill="#f8f9fa"/>
+<text x="600.0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">
+🇮🇩 印度尼西亚 & 🇹🇭 泰国 官方柴油价格走势图 (2026 年 1 月 -3 月)
+</text>
+<text x="600.0" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+数据来源：Pertamina 官网、泰国能源部、GlobalPetrolPrices.com
+</text>
+<text x="347.5" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#667eea">🇮🇩 印度尼西亚柴油价格 (印尼盾/升)</text>
+<line x1="80" y1="80.0" x2="615.0" y2="80.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="70" y="84.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">16,000</text>
+<line x1="80" y1="140.0" x2="615.0" y2="140.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="70" y="144.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">14,166</text>
+<line x1="80" y1="200.0" x2="615.0" y2="200.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="70" y="204.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">12,333</text>
+<line x1="80" y1="260.0" x2="615.0" y2="260.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="70" y="264.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">10,500</text>
+<line x1="80" y1="320.0" x2="615.0" y2="320.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="70" y="324.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">8,666</text>
+<line x1="80" y1="380.0" x2="615.0" y2="380.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="70" y="384.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">6,833</text>
+<line x1="80" y1="440.0" x2="615.0" y2="440.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="70" y="444.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">5,000</text>
+<polygon points="80,440.0 80.0,160.1818181818182 284.7530864197531,165.90909090909093 469.69135802469134,134.0 568.7654320987654,125.16363636363639 615.0,125.16363636363639 615.0,440.0" fill="rgba(102, 126, 234, 0.1)"/>
+<polyline points="80.0,160.1818181818182 284.7530864197531,165.90909090909093 469.69135802469134,134.0 568.7654320987654,125.16363636363639 615.0,125.16363636363639" fill="none" stroke="#667eea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="80.0" cy="160.1818181818182" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
+<circle cx="284.7530864197531" cy="165.90909090909093" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
+<circle cx="469.69135802469134" cy="134.0" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
+<circle cx="568.7654320987654" cy="125.16363636363639" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
+<circle cx="615.0" cy="125.16363636363639" r="6" fill="#667eea" stroke="white" stroke-width="2"/>
+<line x1="80" y1="381.0909090909091" x2="615.0" y2="381.0909090909091" stroke="#28a745" stroke-width="3" stroke-dasharray="5,5"/>
+<text x="515.0" y="373.0909090909091" font-family="Arial" font-size="11" fill="#28a745" font-weight="bold">补贴柴油 Rp 6,800 (固定)</text>
+<text x="80.0" y="148.1818181818182" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">Rp 13,550</text>
+<text x="284.7530864197531" y="153.90909090909093" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">Rp 13,375</text>
+<text x="469.69135802469134" y="122.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">Rp 14,350</text>
+<text x="568.7654320987654" y="113.16363636363639" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">Rp 14,620</text>
+<text x="615.0" y="113.16363636363639" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">Rp 14,620</text>
+<line x1="469.69135802469134" y1="80" x2="469.69135802469134" y2="440.0" stroke="#ffc107" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+<text x="469.69135802469134" y="75" text-anchor="middle" font-family="Arial" font-size="10" fill="#ff9800">⬆️ 3/1 涨价</text>
+<line x1="80" y1="440.0" x2="615.0" y2="440.0" stroke="#333" stroke-width="2"/>
+<text x="80.0" y="460.0" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">01/01</text>
+<text x="284.7530864197531" y="460.0" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">02/01</text>
+<text x="469.69135802469134" y="460.0" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">03/01</text>
+<text x="568.7654320987654" y="460.0" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">03/16</text>
+<text x="615.0" y="460.0" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">03/23</text>
+<text x="932.5" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#dc3545">🇹🇭 泰国柴油价格 (泰铢/升)</text>
+<line x1="665.0" y1="80.0" x2="1200.0" y2="80.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="655.0" y="84.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">33.00</text>
+<line x1="665.0" y1="140.0" x2="1200.0" y2="140.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="655.0" y="144.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">32.00</text>
+<line x1="665.0" y1="200.0" x2="1200.0" y2="200.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="655.0" y="204.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">31.00</text>
+<line x1="665.0" y1="260.0" x2="1200.0" y2="260.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="655.0" y="264.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">30.00</text>
+<line x1="665.0" y1="320.0" x2="1200.0" y2="320.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="655.0" y="324.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">29.00</text>
+<line x1="665.0" y1="380.0" x2="1200.0" y2="380.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="655.0" y="384.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">28.00</text>
+<line x1="665.0" y1="440.0" x2="1200.0" y2="440.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="655.0" y="444.0" text-anchor="end" font-family="Arial" font-size="10" fill="#666">27.00</text>
+<polygon points="665.0,440.0 665.0,350.0 757.4691358024692,350.0 869.7530864197531,320.0 962.2222222222222,320.0 1054.6913580246915,290.0 1114.1358024691358,263.5999999999999 1160.3703703703704,263.5999999999999 1166.9753086419753,233.5999999999999 1186.79012345679,191.59999999999997 1200.0,191.59999999999997 1200.0,440.0" fill="rgba(220, 53, 69, 0.1)"/>
+<polyline points="665.0,350.0 757.4691358024692,350.0 869.7530864197531,320.0 962.2222222222222,320.0 1054.6913580246915,290.0 1114.1358024691358,263.5999999999999 1160.3703703703704,263.5999999999999 1166.9753086419753,233.5999999999999 1186.79012345679,191.59999999999997 1200.0,191.59999999999997" fill="none" stroke="#dc3545" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="665.0" cy="350.0" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="757.4691358024692" cy="350.0" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="869.7530864197531" cy="320.0" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="962.2222222222222" cy="320.0" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="1054.6913580246915" cy="290.0" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="1114.1358024691358" cy="263.5999999999999" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="1160.3703703703704" cy="263.5999999999999" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="1166.9753086419753" cy="233.5999999999999" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="1186.79012345679" cy="191.59999999999997" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<circle cx="1200.0" cy="191.59999999999997" r="5" fill="#dc3545" stroke="white" stroke-width="2"/>
+<text x="665.0" y="342.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿28.50</text>
+<text x="757.4691358024692" y="342.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿28.50</text>
+<text x="869.7530864197531" y="312.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿29.00</text>
+<text x="962.2222222222222" y="312.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿29.00</text>
+<text x="1054.6913580246915" y="282.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿29.50</text>
+<text x="1114.1358024691358" y="255.5999999999999" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿29.94</text>
+<text x="1160.3703703703704" y="255.5999999999999" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿29.94</text>
+<text x="1166.9753086419753" y="225.5999999999999" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿30.44</text>
+<text x="1186.79012345679" y="183.59999999999997" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿31.14</text>
+<text x="1200.0" y="183.59999999999997" text-anchor="middle" font-family="Arial" font-size="9" fill="#333">฿31.14</text>
+<line x1="1067.9012345679012" y1="80" x2="1067.9012345679012" y2="440.0" stroke="#9c27b0" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+<text x="1067.9012345679012" y="75" text-anchor="middle" font-family="Arial" font-size="9" fill="#9c27b0">📌 3/3 限价</text>
+<line x1="1166.9753086419753" y1="80" x2="1166.9753086419753" y2="440.0" stroke="#ff9800" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+<text x="1166.9753086419753" y="75" text-anchor="middle" font-family="Arial" font-size="9" fill="#ff9800">⬆️ 3/18</text>
+<line x1="1186.79012345679" y1="80" x2="1186.79012345679" y2="440.0" stroke="#f44336" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+<text x="1186.79012345679" y="75" text-anchor="middle" font-family="Arial" font-size="9" fill="#f44336">⬆️ 3/21</text>
+<line x1="665.0" y1="440.0" x2="1200.0" y2="440.0" stroke="#333" stroke-width="2"/>
+<text x="665.0" y="460.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">01/01</text>
+<text x="869.7530864197531" y="460.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">02/01</text>
+<text x="1054.6913580246915" y="460.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">03/01</text>
+<text x="1160.3703703703704" y="460.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">03/17</text>
+<text x="1166.9753086419753" y="460.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">03/18</text>
+<text x="1186.79012345679" y="460.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">03/21</text>
+<text x="1200.0" y="460.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#333">03/23</text>
+<rect x="80" y="850" width="15" height="15" fill="rgba(102, 126, 234, 0.3)" stroke="#667eea" stroke-width="2"/>
+<text x="100" y="862" font-family="Arial" font-size="11" fill="#333">印尼非补贴柴油</text>
+<line x1="230" y1="858" x2="260" y2="858" stroke="#28a745" stroke-width="3" stroke-dasharray="5,5"/>
+<text x="265" y="862" font-family="Arial" font-size="11" fill="#333">印尼补贴柴油 (固定)</text>
+<rect x="480" y="850" width="15" height="15" fill="rgba(220, 53, 69, 0.3)" stroke="#dc3545" stroke-width="2"/>
+<text x="500" y="862" font-family="Arial" font-size="11" fill="#333">泰国柴油</text>
+<rect x="80" y="820" width="1070" height="60" fill="#fff3cd" stroke="#ffc107" stroke-width="2" rx="5"/>
+<text x="90" y="840" font-family="Arial" font-size="11" font-weight="bold" fill="#856404">📝 说明:</text>
+<text x="90" y="858" font-family="Arial" font-size="10" fill="#856404">• 印尼补贴柴油价格由政府固定 (Rp 6,800/升) • 泰国柴油价格由能源部石油燃料基金管理委员会定期调整</text>
+<text x="90" y="875" font-family="Arial" font-size="10" fill="#856404">• 3 月中东冲突导致全球油价上涨，两国均面临调价压力 • 数据截至 2026 年 3 月 23 日</text>
+</svg>

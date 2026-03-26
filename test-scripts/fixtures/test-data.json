@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "username": "test_teacher_001",
+      "password": "Test123456!",
+      "email": "teacher001@test.com",
+      "role": "teacher"
+    },
+    {
+      "username": "test_student_001",
+      "password": "Test123456!",
+      "email": "student001@test.com",
+      "role": "student"
+    },
+    {
+      "username": "test_student_002",
+      "password": "Test123456!",
+      "email": "student002@test.com",
+      "role": "student"
+    },
+    {
+      "username": "test_admin_001",
+      "password": "Test123456!",
+      "email": "admin001@test.com",
+      "role": "admin"
+    }
+  ],
+  "assignments": [
+    {
+      "title": "数学练习 - 三位数加减法",
+      "subject": "math",
+      "grade": 3,
+      "knowledgePoints": ["kp_math_001", "kp_math_002"],
+      "questionTypes": ["choice", "fill"],
+      "difficulty": "medium",
+      "questionCount": 10,
+      "timeLimit": 1800
+    },
+    {
+      "title": "语文练习 - 古诗词填空",
+      "subject": "chinese",
+      "grade": 3,
+      "knowledgePoints": ["kp_chinese_001"],
+      "questionTypes": ["fill"],
+      "difficulty": "easy",
+      "questionCount": 8,
+      "timeLimit": 1200
+    },
+    {
+      "title": "英语练习 - 单词拼写",
+      "subject": "english",
+      "grade": 3,
+      "knowledgePoints": ["kp_english_001"],
+      "questionTypes": ["choice"],
+      "difficulty": "medium",
+      "questionCount": 12,
+      "timeLimit": 900
+    }
+  ],
+  "questions": [
+    {
+      "type": "choice",
+      "content": "123 + 456 = ?",
+      "options": ["579", "589", "569", "599"],
+      "answer": "A",
+      "difficulty": "easy",
+      "knowledgePoint": "kp_math_001"
+    },
+    {
+      "type": "fill",
+      "content": "床前明月光，疑是___上霜",
+      "answer": "地",
+      "difficulty": "medium",
+      "knowledgePoint": "kp_chinese_001"
+    }
+  ],
+  "classes": [
+    {
+      "name": "三年级 1 班",
+      "grade": 3,
+      "classNumber": 1
+    },
+    {
+      "name": "三年级 2 班",
+      "grade": 3,
+      "classNumber": 2
+    }
+  ]
+}

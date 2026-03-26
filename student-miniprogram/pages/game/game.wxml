@@ -1,0 +1,118 @@
+<view class="game-container">
+  <!-- 剧情展示区域 -->
+  <view class="story-section" wx:if="{{currentStage === 'story'}}">
+    <view class="story-bg"></view>
+    <view class="story-content">
+      <view class="story-title">{{storyInfo.title}}</view>
+      <view class="story-text">{{storyInfo.content}}</view>
+      <button class="start-btn" bindtap="startGame">开始挑战</button>
+    </view>
+  </view>
+
+  <!-- 游戏主界面 -->
+  <view class="game-section" wx:if="{{currentStage === 'game'}}">
+    <!-- 顶部信息栏 -->
+    <view class="game-header">
+      <view class="info-item">
+        <text class="info-icon">⏱️</text>
+        <text class="info-value">{{timer}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-icon">💎</text>
+        <text class="info-value">{{score}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-icon">🔑</text>
+        <text class="info-value">{{clues}}/{{totalQuestions}}</text>
+      </view>
+    </view>
+
+    <!-- 线索展示 -->
+    <view class="clue-section">
+      <view class="clue-title">🔍 已解锁线索</view>
+      <scroll-view class="clue-list" scroll-x>
+        <view 
+          class="clue-item {{clue.unlocked ? 'unlocked' : 'locked'}}"
+          wx:for="{{clues}}"
+          wx:key="id"
+        >
+          <text class="clue-icon">{{clue.unlocked ? '🔓' : '🔒'}}</text>
+          <text class="clue-name">{{clue.name}}</text>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 题目区域 -->
+    <view class="question-section">
+      <view class="question-card">
+        <view class="question-type">
+          <text class="type-tag">{{currentQuestion.type}}</text>
+          <text class="question-number">第 {{currentQuestionIndex + 1}}/{{totalQuestions}} 题</text>
+        </view>
+        <view class="question-content">
+          <text class="question-text">{{currentQuestion.text}}</text>
+          <image 
+            wx:if="{{currentQuestion.image}}" 
+            class="question-image" 
+            src="{{currentQuestion.image}}" 
+            mode="aspectFit"
+          />
+        </view>
+        <view class="options-list">
+          <view 
+            class="option-item {{option.selected ? 'selected' : ''}}"
+            wx:for="{{currentQuestion.options}}"
+            wx:key="index"
+            bindtap="selectOption"
+            data-index="{{index}}"
+          >
+            <text class="option-label">{{['A', 'B', 'C', 'D'][index]}}</text>
+            <text class="option-text">{{item}}</text>
+          </view>
+        </view>
+        <button class="submit-btn" bindtap="submitAnswer" disabled="{{!selectedOption}}">
+          提交答案
+        </button>
+      </view>
+    </view>
+
+    <!-- 解锁动画 -->
+    <view class="unlock-animation" wx:if="{{showUnlockAnimation}}">
+      <view class="unlock-content">
+        <text class="unlock-icon">🎉</text>
+        <text class="unlock-text">线索解锁！</text>
+        <text class="unlock-clue">{{unlockedClueName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 通关结算 -->
+  <view class="result-section" wx:if="{{currentStage === 'result'}}">
+    <view class="result-card">
+      <text class="result-icon">🏆</text>
+      <text class="result-title">挑战成功！</text>
+      <view class="result-stats">
+        <view class="stat-item">
+          <text class="stat-label">得分</text>
+          <text class="stat-value">{{score}}</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-label">用时</text>
+          <text class="stat-value">{{timer}}秒</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-label">正确率</text>
+          <text class="stat-value">{{accuracy}}%</text>
+        </view>
+      </view>
+      <view class="rewards">
+        <text class="rewards-title">获得奖励</text>
+        <view class="rewards-list">
+          <text class="reward-item">🪙 +{{rewards.coins}} 金币</text>
+          <text class="reward-item">🏅 +{{rewards.badges}} 徽章</text>
+        </view>
+      </view>
+      <button class="back-btn" bindtap="backToHomework">返回作业列表</button>
+    </view>
+  </view>
+</view>

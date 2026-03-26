@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>备考计划流程图</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .conditions {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #9c27b0;
+        }
+        .condition-item {
+            margin: 8px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 3px;
+        }
+        .download-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .download-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 备考计划基础数据同步流程图</h1>
+        
+        <div class="info">
+            <strong>更新时间：</strong>2026-03-26<br>
+            <strong>更新内容：</strong>移除了"考纲和课程科目一致"的限制条件
+        </div>
+
+        <div class="conditions">
+            <h3>✅ 批量写入标签条件（更新后 - 3 个条件）</h3>
+            <div class="condition-item">1️⃣ 考纲关联了考点</div>
+            <div class="condition-item">2️⃣ 课程大纲 unit 下有考点</div>
+            <div class="condition-item">3️⃣ 条件 1 和 2 有交集</div>
+        </div>
+
+        <h2>完整流程图</h2>
+        <div class="mermaid">
+flowchart TD
+    subgraph S1[场景 1：编辑备考计划配置]
+        A1[编辑备考计划配置] --> A2[新增/修改考纲<br/>新增课程]
+        A2 --> A3[ai-plan 服务]
+        A3 --> A4[🕐 延迟队列<br/>延迟 2 分钟]
+        A4 --> A5[sailjob<br/>写缓存执行队列]
+        A5 --> A6[🌙 第二天凌晨执行]
+        A6 --> A7[learning 服务<br/>批量打标签任务]
+    end
+
+    subgraph S2[场景 2：大纲条目资源变动]
+        B1[大纲条目资源变动] --> B2[ep-backend 反查<br/>满足条件的课程阶段]
+        B2 --> B3[调用 learning 服务]
+        B3 --> B4[触发基础数据同步]
+    end
+
+    subgraph S3[批量写入标签条件判断 - 已更新]
+        C1{考纲是否关联<br/>考点？} -->|是 | C2{课程大纲 unit 下<br/>是否有考点？}
+        C2 -->|是 | C3{条件 1 和 2<br/>是否有交集？}
+        C3 -->|是 | C4[✅ 满足条件]
+        C4 --> C5[💾 写入 zs_learning_exam_syllabus_knowledge]
+        C5 --> C6[💾 写入 zs_learning_particle_relationship]
+        
+        C1 -->|否 | C7[❌ 不满足]
+        C2 -->|否 | C7
+        C3 -->|否 | C7
+    end
+
+    A7 --> C1
+    B4 --> C1
+
+    style S1 fill:#e1f5fe,stroke:#0288d1
+    style S2 fill:#fff3e0,stroke:#f57c00
+    style S3 fill:#f3e5f5,stroke:#7b1fa2
+    style C4 fill:#c8e6c9,stroke:#388e3c
+    style C7 fill:#ffcdd2,stroke:#d32f2f
+    style A4 fill:#fff9c4,stroke:#fbc02d
+    style A6 fill:#fff9c4,stroke:#fbc02d
+        </div>
+
+        <button class="download-btn" onclick="downloadSVG()">📥 下载 SVG 图片</button>
+        <button class="download-btn" onclick="downloadPNG()">📥 下载 PNG 图片</button>
+
+        <h2>📋 接口调用说明</h2>
+        <table border="1" cellpadding="10" style="width:100%; border-collapse: collapse;">
+            <tr style="background: #e3f2fd;">
+                <th>服务</th>
+                <th>方法</th>
+                <th>URL</th>
+                <th>参数</th>
+            </tr>
+            <tr>
+                <td>learning.gaodun.com</td>
+                <td>POST</td>
+                <td>/api/ailearning/save-plan-all-resource</td>
+                <td>{"courseId": 91784, "syllabusId": 175030}</td>
+            </tr>
+        </table>
+
+        <h2>📊 调用次数计算</h2>
+        <div class="info">
+            <strong>公式：</strong>总调用次数 = 课程数量 × 课程阶段数量<br>
+            <strong>示例：</strong>3 个课程 × 2 个阶段 = <strong>6 次调用</strong>
+        </div>
+    </div>
+
+    <script>
+        function downloadSVG() {
+            const svg = document.querySelector('.mermaid svg');
+            if (!svg) {
+                alert('流程图还未加载完成，请稍后再试');
+                return;
+            }
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const blob = new Blob([svgData], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = '备考计划流程图.svg';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadPNG() {
+            const svg = document.querySelector('.mermaid svg');
+            if (!svg) {
+                alert('流程图还未加载完成，请稍后再试');
+                return;
+            }
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(svgBlob);
+            
+            const img = new Image();
+            img.onload = function() {
+                canvas.width = img.width * 2;
+                canvas.height = img.height * 2;
+                ctx.scale(2, 2);
+                ctx.drawImage(img, 0, 0);
+                URL.revokeObjectURL(url);
+                
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = '备考计划流程图.png';
+                    link.click();
+                }, 'image/png');
+            };
+            img.src = url;
+        }
+    </script>
+</body>
+</html>

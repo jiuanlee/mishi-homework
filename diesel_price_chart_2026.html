@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>印度尼西亚 & 泰国柴油价格走势图 (2026 年 1 月 -3 月)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        .info-box ul {
+            color: #856404;
+            margin-left: 20px;
+        }
+        .info-box li {
+            margin-bottom: 5px;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .data-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        .data-table tr:hover {
+            background: #f5f5f5;
+        }
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        .flag {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+        .price-up {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .price-stable {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇮🇩 印度尼西亚 & 🇹🇭 泰国 官方柴油价格走势图</h1>
+        <p class="subtitle">2026 年 1 月 1 日 - 3 月 23 日 | 数据来源：Pertamina 官网、泰国能源部、GlobalPetrolPrices.com</p>
+        
+        <div class="chart-container">
+            <canvas id="indonesiaChart"></canvas>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="thailandChart"></canvas>
+        </div>
+        
+        <div class="info-box">
+            <h3>📝 重要说明</h3>
+            <ul>
+                <li><strong>印尼补贴柴油 (Solar)</strong> 价格由政府固定为 <strong>Rp 6,800/升</strong>，自 2026 年 1 月以来未变</li>
+                <li><strong>印尼非补贴柴油</strong> (Dexlite/Pertamina Dex) 根据国际油价每月调整</li>
+                <li><strong>泰国柴油</strong> 价格由能源部石油燃料基金管理委员会 (OFAC) 定期调整</li>
+                <li><strong>3 月中东冲突</strong> 导致全球油价上涨，两国均面临调价压力</li>
+                <li>泰国政府于 3 月 18 日和 21 日两次上调柴油价格，上限从 30 泰铢提高至 33 泰铢/升</li>
+            </ul>
+        </div>
+        
+        <h2 style="margin-top: 30px; color: #333;">📊 详细价格数据表</h2>
+        
+        <h3 style="margin-top: 20px; color: #667eea;">🇮🇩 印度尼西亚</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>补贴柴油 (Solar)</th>
+                    <th>非补贴柴油 (Dexlite)</th>
+                    <th>非补贴柴油 (Pertamina Dex)</th>
+                    <th>事件</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-01-01</td>
+                    <td class="price-stable">Rp 6,800</td>
+                    <td>Rp 13,500</td>
+                    <td>Rp 13,600</td>
+                    <td>新年降价</td>
+                </tr>
+                <tr>
+                    <td>2026-02-01</td>
+                    <td class="price-stable">Rp 6,800</td>
+                    <td>Rp 13,250</td>
+                    <td>Rp 13,500</td>
+                    <td>小幅下调</td>
+                </tr>
+                <tr>
+                    <td>2026-03-01</td>
+                    <td class="price-stable">Rp 6,800</td>
+                    <td class="price-up">Rp 14,200</td>
+                    <td class="price-up">Rp 14,500</td>
+                    <td>全球油价上涨</td>
+                </tr>
+                <tr>
+                    <td>2026-03-16</td>
+                    <td class="price-stable">Rp 6,800</td>
+                    <td class="price-up">Rp 14,620</td>
+                    <td class="price-up">Rp 14,620</td>
+                    <td>价格稳定</td>
+                </tr>
+                <tr>
+                    <td>2026-03-23</td>
+                    <td class="price-stable">Rp 6,800</td>
+                    <td class="price-up">Rp 14,620</td>
+                    <td class="price-up">Rp 14,620</td>
+                    <td>当前价格</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3 style="margin-top: 20px; color: #dc3545;">🇹🇭 泰国</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>柴油价格 (THB/升)</th>
+                    <th>变化</th>
+                    <th>事件</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-01-01</td>
+                    <td>฿28.50</td>
+                    <td class="price-stable">-</td>
+                    <td>年初价格</td>
+                </tr>
+                <tr>
+                    <td>2026-02-01</td>
+                    <td>฿29.00</td>
+                    <td class="price-up">+฿0.50</td>
+                    <td>小幅上调</td>
+                </tr>
+                <tr>
+                    <td>2026-03-01</td>
+                    <td>฿29.50</td>
+                    <td class="price-up">+฿0.50</td>
+                    <td>持续上涨</td>
+                </tr>
+                <tr>
+                    <td>2026-03-03</td>
+                    <td>฿29.94</td>
+                    <td class="price-up">+฿0.44</td>
+                    <td>政府限价 15 天</td>
+                </tr>
+                <tr>
+                    <td>2026-03-17</td>
+                    <td class="price-stable">฿29.94</td>
+                    <td class="price-stable">0</td>
+                    <td>限价维持</td>
+                </tr>
+                <tr>
+                    <td>2026-03-18</td>
+                    <td class="price-up">฿30.44</td>
+                    <td class="price-up">+฿0.50</td>
+                    <td>限价上调至 33 泰铢</td>
+                </tr>
+                <tr>
+                    <td>2026-03-21</td>
+                    <td class="price-up">฿31.14</td>
+                    <td class="price-up">+฿0.70</td>
+                    <td>继续上调</td>
+                </tr>
+                <tr>
+                    <td>2026-03-23</td>
+                    <td class="price-stable">฿31.14</td>
+                    <td class="price-stable">0</td>
+                    <td>当前价格</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            <p>图表生成时间：2026 年 3 月 23 日 | 数据来源：Pertamina (https://www.pertamina.com), 泰国能源部 (https://www.energy.go.th), GlobalPetrolPrices.com</p>
+        </div>
+    </div>
+
+    <script>
+        // 印度尼西亚数据
+        const indonesiaData = {
+            labels: ['2026-01-01', '2026-02-01', '2026-03-01', '2026-03-16', '2026-03-23'],
+            datasets: [
+                {
+                    label: '非补贴柴油 (Dexlite/Pertamina Dex)',
+                    data: [
+                        {x: '2026-01-01', y: 13550},
+                        {x: '2026-02-01', y: 13375},
+                        {x: '2026-03-01', y: 14350},
+                        {x: '2026-03-16', y: 14620},
+                        {x: '2026-03-23', y: 14620}
+                    ],
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                },
+                {
+                    label: '补贴柴油 (Solar) - 政府固定',
+                    data: [
+                        {x: '2026-01-01', y: 6800},
+                        {x: '2026-02-01', y: 6800},
+                        {x: '2026-03-01', y: 6800},
+                        {x: '2026-03-16', y: 6800},
+                        {x: '2026-03-23', y: 6800}
+                    ],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                    borderWidth: 3,
+                    borderDash: [5, 5],
+                    fill: false,
+                    tension: 0,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }
+            ]
+        };
+
+        // 泰国数据
+        const thailandData = {
+            labels: ['2026-01-01', '2026-01-15', '2026-02-01', '2026-02-15', '2026-03-01', '2026-03-10', '2026-03-17', '2026-03-18', '2026-03-21', '2026-03-23'],
+            datasets: [
+                {
+                    label: '柴油 (Diesel B7)',
+                    data: [
+                        {x: '2026-01-01', y: 28.50},
+                        {x: '2026-01-15', y: 28.50},
+                        {x: '2026-02-01', y: 29.00},
+                        {x: '2026-02-15', y: 29.00},
+                        {x: '2026-03-01', y: 29.50},
+                        {x: '2026-03-10', y: 29.94},
+                        {x: '2026-03-17', y: 29.94},
+                        {x: '2026-03-18', y: 30.44},
+                        {x: '2026-03-21', y: 31.14},
+                        {x: '2026-03-23', y: 31.14}
+                    ],
+                    borderColor: '#dc3545',
+                    backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }
+            ]
+        };
+
+        // 通用配置
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        font: {
+                            size: 12,
+                            family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                        },
+                        usePointStyle: true,
+                        padding: 15
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleFont: {
+                        size: 13,
+                        family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                    },
+                    bodyFont: {
+                        size: 12,
+                        family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                    },
+                    padding: 12,
+                    cornerRadius: 8,
+                    displayColors: true,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += context.parsed.y.toLocaleString();
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'time',
+                    time: {
+                        unit: 'week',
+                        displayFormats: {
+                            week: 'MM/dd',
+                            day: 'MM/dd'
+                        },
+                        tooltipFormat: 'yyyy-MM-dd'
+                    },
+                    title: {
+                        display: true,
+                        text: '日期',
+                        font: {
+                            size: 13,
+                            family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                },
+                y: {
+                    beginAtZero: false,
+                    title: {
+                        display: true,
+                        font: {
+                            size: 13,
+                            family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                        }
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                }
+            }
+        };
+
+        // 创建印度尼西亚图表
+        new Chart(document.getElementById('indonesiaChart'), {
+            type: 'line',
+            data: indonesiaData,
+            options: {
+                ...commonOptions,
+                plugins: {
+                    ...commonOptions.plugins,
+                    title: {
+                        display: true,
+                        text: '🇮🇩 印度尼西亚柴油价格 (印尼盾 IDR/升)',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                        },
+                        padding: {
+                            top: 10,
+                            bottom: 20
+                        }
+                    }
+                },
+                scales: {
+                    ...commonOptions.scales,
+                    y: {
+                        ...commonOptions.scales.y,
+                        title: {
+                            ...commonOptions.scales.y.title,
+                            text: '价格 (印尼盾/升)'
+                        },
+                        min: 5000,
+                        max: 16000
+                    }
+                }
+            }
+        });
+
+        // 创建泰国图表
+        new Chart(document.getElementById('thailandChart'), {
+            type: 'line',
+            data: thailandData,
+            options: {
+                ...commonOptions,
+                plugins: {
+                    ...commonOptions.plugins,
+                    title: {
+                        display: true,
+                        text: '🇹🇭 泰国柴油价格 (泰铢 THB/升)',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                        },
+                        padding: {
+                            top: 10,
+                            bottom: 20
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line',
+                                xMin: '2026-03-03',
+                                xMax: '2026-03-03',
+                                borderColor: 'rgba(128, 0, 128, 0.5)',
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                label: {
+                                    display: true,
+                                    content: '政府限价',
+                                    position: 'start'
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    ...commonOptions.scales,
+                    y: {
+                        ...commonOptions.scales.y,
+                        title: {
+                            ...commonOptions.scales.y.title,
+                            text: '价格 (泰铢/升)'
+                        },
+                        min: 27,
+                        max: 33
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

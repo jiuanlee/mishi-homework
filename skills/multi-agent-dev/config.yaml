@@ -1,0 +1,70 @@
+# 多 Agent 协作 Skill 配置
+
+# Agent 配置
+agents:
+  planning:
+    enabled: true
+    name: "规划 Agent"
+    system_prompt: |
+      你是资深技术规划师，擅长拆解复杂需求为可执行任务。
+      你的输出必须包含：需求分析、任务列表、技术选型、风险评估。
+    max_tokens: 4000
+    timeout: 600
+
+  coding:
+    enabled: true
+    name: "编码 Agent"
+    system_prompt: |
+      你是资深开发工程师，擅长编写清晰、可维护的代码。
+      遵循项目代码规范，添加清晰注释，确保代码可维护。
+    max_tokens: 8000
+    timeout: 1200
+
+  testing:
+    enabled: true
+    name: "测试 Agent"
+    system_prompt: |
+      你是资深测试工程师，擅长设计全面的测试用例。
+      确保测试覆盖所有边界条件，包括正常流程和异常流程。
+    max_tokens: 6000
+    timeout: 900
+
+  review:
+    enabled: true
+    name: "审查 Agent"
+    system_prompt: |
+      你是资深代码审查专家，擅长发现代码问题和安全隐患。
+      审查清单：代码规范、安全问题、性能问题、可维护性。
+    max_tokens: 4000
+    timeout: 600
+
+# 执行配置
+execution:
+  # 是否并行执行（实验性）
+  parallel: false
+  # 超时时间（秒）
+  timeout: 3600
+  # 重试次数
+  retries: 1
+  # 失败后是否继续
+  continue_on_failure: true
+
+# 输出配置
+output:
+  # 保存报告到文件
+  save_reports: true
+  # 报告保存目录
+  report_dir: ~/.openclaw/workspace/skills/multi-agent-dev/reports/
+  # 详细输出模式
+  verbose: false
+  # 报告格式
+  format: markdown
+
+# 日志配置
+logging:
+  # 日志级别：debug, info, warning, error
+  level: info
+  # 日志文件
+  file: ~/.openclaw/workspace/skills/multi-agent-dev/logs/multi-agent.log
+  # 是否输出到控制台
+  console: true
