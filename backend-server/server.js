@@ -26,6 +26,7 @@ const assignmentRoutes = require('./routes/assignment');
 const answerRoutes = require('./routes/answer');
 const statsRoutes = require('./routes/stats');
 const aiRoutes = require('./routes/ai');
+const batchImportRoutes = require('./routes/batch-import');
 
 // API Routes
 app.use('/api/auth', authRoutes);
@@ -34,6 +35,7 @@ app.use('/api/assignment', assignmentRoutes);
 app.use('/api/answer', answerRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/batch-import', batchImportRoutes);
 
 // Health check
 app.get('/health', (req, res) => {

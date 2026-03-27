@@ -22,7 +22,8 @@ const scriptStore = new Map();
  *   timeLimit: number,      // 时长（分钟）（可选，默认：20）
  *   knowledgePoints: string,// 知识点（可选，默认：数学、逻辑推理）
  *   targetAge: string,      // 目标年龄（可选，默认：小学生）
- *   model: string           // 模型：qwen-plus|minimax（可选，默认：qwen-plus）
+ *   model: string,          // 模型：qwen-plus|qwen-turbo|glm-4|glm-3-turbo|abab6.5（可选，默认：qwen-plus）
+ *   provider: string        // 提供商：bailian|glm|minimax（可选，默认：bailian）
  * }
  */
 router.post('/generate-script', [
@@ -31,7 +32,8 @@ router.post('/generate-script', [
   body('timeLimit').optional().isInt({ min: 5, max: 120 }),
   body('knowledgePoints').optional().isString().trim(),
   body('targetAge').optional().isString().trim(),
-  body('model').optional().isIn(['qwen-plus', 'qwen-turbo', 'abab6.5'])
+  body('model').optional().isIn(['qwen-plus', 'qwen-turbo', 'qwen3.5-plus', 'glm-4', 'glm-3-turbo', 'abab6.5']),
+  body('provider').optional().isIn(['bailian', 'glm', 'minimax'])
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -48,10 +50,11 @@ router.post('/generate-script', [
       timeLimit = 20,
       knowledgePoints = '数学、逻辑推理',
       targetAge = '小学生',
-      model = 'qwen-plus'
+      model = 'qwen-plus',
+      provider = 'bailian'
     } = req.body;
 
-    console.log(`📝 开始生成剧本：主题=${theme}, 难度=${difficulty}, 时长=${timeLimit}分钟`);
+    console.log(`📝 开始生成剧本：主题=${theme}, 难度=${difficulty}, 模型=${model}, 提供商=${provider}`);
 
     // 调用大模型生成剧本
     const script = await llmService.generateScript({
@@ -59,7 +62,9 @@ router.post('/generate-script', [
       difficulty,
       timeLimit,
       knowledgePoints,
-      targetAge
+      targetAge,
+      model,
+      provider
     });
 
     // 存储剧本

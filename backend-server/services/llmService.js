@@ -1,6 +1,6 @@
 /**
- * 大模型服务 - 集成 Bailian API 和 MiniMax API
- * 支持流式输出和多种模型
+ * 大模型服务 - 集成 Bailian、GLM 和 MiniMax API
+ * 支持多种模型：通义千问、智谱 GLM、MiniMax
  */
 
 const axios = require('axios');
@@ -11,13 +11,17 @@ class LLMService {
     this.bailianApiKey = process.env.BAILIAN_API_KEY;
     this.bailianBaseUrl = 'https://dashscope.aliyuncs.com/compatible-mode/v1';
     
+    // GLM (智谱 AI) 配置
+    this.glmApiKey = process.env.GLM_API_KEY;
+    this.glmBaseUrl = 'https://open.bigmodel.cn/api/paas/v4';
+    
     // MiniMax 配置
     this.minimaxApiKey = process.env.MINIMAX_API_KEY;
     this.minimaxGroupId = process.env.MINIMAX_GROUP_ID;
     this.minimaxBaseUrl = 'https://api.minimax.chat/v1';
     
     // 默认模型
-    this.defaultModel = 'qwen-plus'; // 通义千问
+    this.defaultModel = 'qwen3.5-plus'; // 通义千问 3.5
   }
 
   /**
@@ -43,6 +47,8 @@ class LLMService {
     try {
       if (provider === 'bailian') {
         return await this._callBailian(prompt, { model, temperature, maxTokens, stream });
+      } else if (provider === 'glm') {
+        return await this._callGLM(prompt, { model, temperature, maxTokens, stream });
       } else if (provider === 'minimax') {
         return await this._callMinimax(prompt, { model, temperature, maxTokens, stream });
       } else {
@@ -82,6 +88,46 @@ class LLMService {
       {
         headers: {
           'Authorization': `Bearer ${this.bailianApiKey}`,
+          'Content-Type': 'application/json'
+        },
+        timeout: 60000
+      }
+    );
+
+    if (stream) {
+      return response.data; // 流式数据
+    }
+
+    return response.data.choices[0]?.message?.content || '';
+  }
+
+  /**
+   * 调用 GLM (智谱 AI) API
+   */
+  async _callGLM(prompt, options) {
+    const { model, temperature, maxTokens, stream } = options;
+
+    const response = await axios.post(
+      `${this.glmBaseUrl}/chat/completions`,
+      {
+        model: model || 'glm-4',
+        messages: [
+          {
+            role: 'system',
+            content: '你是一个专业的密室逃脱游戏设计师，擅长创作有趣、教育性强的剧本。'
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        temperature: temperature,
+        max_tokens: maxTokens,
+        stream: stream
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${this.glmApiKey}`,
           'Content-Type': 'application/json'
         },
         timeout: 60000
@@ -159,7 +205,7 @@ class LLMService {
       .replace('{{targetAge}}', params.targetAge || '小学生');
 
     const response = await this.generate(prompt, {
-      model: 'qwen-plus',
+      model: 'qwen3.5-plus',  // 通义千问 3.5
       provider: 'bailian',
       temperature: 0.8,
       maxTokens: 8192
